@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 telaLogin">
+            <h2>Estacionamento - Login</h2>
+            
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formLogin mt-5">
+                <div class="input-group mt-2 row">
+                    <div>
+                        <p>Usuário:</p>
+                        <input type="text" formControlName="usuario" class="form-control" placeholder="Usuário" aria-label="Usuario" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="input-group mt-3 row mt-4">
+                    <div>
+                        <p>Senha:</p>
+                        <input type="text" formControlName="senha" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="input-group mt-4 row">
+                    <div class="btnLogar">
+                        <button type="submit" class="btn btn-success">Logar no sistema</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

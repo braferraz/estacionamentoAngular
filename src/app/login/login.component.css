@@ -1,0 +1,22 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+.telaLogin {
+    width: 600px;
+    margin: 130px auto;
+}
+
+.btnLogar {
+    text-align: right;
+}
+
+.formLogin {    
+    padding: 60px 50px 20px;
+    border-radius: 15px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
