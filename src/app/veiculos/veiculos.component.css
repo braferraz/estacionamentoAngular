@@ -1,0 +1,18 @@
+.barraNav {
+    border-radius: 10px 0px;
+    background-color: rgb(15, 135, 71);
+    
+}
+.barraNav a, li {
+    color: white;
+}
+.nav-item a{
+    border-radius: 5px;
+}
+.nav-item a:hover {
+    background-color: rgb(62, 179, 116) !important;
+}
+
+.veiculos {
+    margin: 110px 0px;
+}

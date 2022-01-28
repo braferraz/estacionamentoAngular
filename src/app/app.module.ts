@@ -5,11 +5,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { VeiculosComponent } from './veiculos/veiculos.component';
+import { RetiradosComponent } from './veiculos/retirados/retirados.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    VeiculosComponent,
+    RetiradosComponent
   ],
   imports: [
     BrowserModule,
