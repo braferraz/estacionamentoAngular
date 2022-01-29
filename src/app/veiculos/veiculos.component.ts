@@ -8,6 +8,9 @@ export class VeiculosComponent implements OnInit {
 
   constructor(public route: Router ) { }
 
+  verifica(rota:any){
+    return this.route.url === rota
+  }
   ngOnInit(): void {
   }
 

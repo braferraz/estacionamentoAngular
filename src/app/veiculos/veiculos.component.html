@@ -1,50 +1,46 @@
-
-
 <div class="container">
-    <div class="col-12 veiculos">
-          <nav class="navbar navbar-expand-lg navbar-dark barraNav static-top">
-            <div class="container">
-              <div class="nav-item">
-                <a class="nav-link" href="#">Inserir veículo</a>
-              </div>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                    <a class="nav-link active" routerLink="/veiculos/retirados" *ngIf="this.route.url === '/veiculos'">Veículos Retirados</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" routerLink="/veiculos" *ngIf="this.route.url === '/veiculos/retirados'">Veículos Estacionados</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>     
-        
-          <router-outlet></router-outlet>
-          <table class="table" *ngIf="this.route.url ==='/veiculos'">
-            
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Veiculo</th>
-                <th scope="col">Data de Entrada</th>
-                <th scope="col">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Ford Focus</td>
-                <td>28/01/2022 10:55</td>
-                <td><a>Editar Veículo</a></td>
-                <td><a>Registrar Saída</a></td>
-              </tr>
-            </tbody>
-        </table>
-    </div>
-    
+  <div class="col-12 veiculos">
+    <nav class="navbar navbar-expand-lg navbar-dark barraNav static-top" [ngClass]="verifica('/veiculos/novo') ? 'formu': ''" >
+      <div class="container">
+        <div class="nav-item">
+            <a class="nav-link" routerLink="/veiculos/novo">Inserir veículo</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/veiculos/retirados" *ngIf="verifica('/veiculos')">Veículos Retirados</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/veiculos" *ngIf="verifica('/veiculos/retirados')">Veículos Estacionados</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <router-outlet></router-outlet>
+
+    <table class="table" *ngIf="this.route.url ==='/veiculos'">   
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Veiculo</th>
+          <th scope="col">Data de Entrada</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Ford Focus</td>
+          <td>28/01/2022 10:55</td>
+          <td><a>Editar Veículo</a></td>
+          <td><a>Registrar Saída</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 

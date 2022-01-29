@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { VeiculosComponent } from './veiculos/veiculos.component';
 import { RetiradosComponent } from './veiculos/retirados/retirados.component';
+import { FormuComponent } from './veiculos/formu/formu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     VeiculosComponent,
-    RetiradosComponent
+    RetiradosComponent,
+    FormuComponent
   ],
   imports: [
     BrowserModule,

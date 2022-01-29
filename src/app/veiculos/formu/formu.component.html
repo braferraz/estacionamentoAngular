@@ -1,0 +1,30 @@
+<div class="novoVeiculo">
+    <div class="title ">
+        <h3>Inserir novo veículo</h3>
+    </div>
+        
+    <form class="form" [formGroup]="veiculoForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3" [ngClass]="verificaCampo('modelo') ? 'alert alert-danger': 'alert'">
+            <label class="form-label">Modelo:</label>
+            <input formControlName="modelo" type="email" class="form-control" placeholder="ex: Nissan Versa"/>
+            <span *ngIf="verificaErro('modelo', 'required')">Este campo é obrigatório.</span>
+            <span *ngIf="verificaErro('modelo', 'minlength')">Este campo deve possuir no minímo 2 caracteres.</span>
+        </div>
+        <div class="mb-3" [ngClass]="verificaCampo('placa') ? 'alert alert-danger': 'alert'">
+            <label class="form-label">Placa:</label>
+            <input formControlName="placa" class="form-control" placeholder="ex: ABC-0000">
+            <span *ngIf="verificaErro('placa', 'required')">Este campo é obrigatório.</span>
+            <span *ngIf="verificaErro('placa', 'maxlength')">Insira uma placa válida.</span>
+            <span *ngIf="verificaErro('placa', 'minlength')">Insira uma placa válida.</span>
+        </div>
+        <div class="mb-3 alert">
+            <label class="form-label">Data de entrada:</label>
+            <input [ngModel]="data | date: 'dd/MM/yyyy hh:mm'" formControlName="dataEntrada" readonly class="form-control">
+        </div> 
+        <div class="mb-3 btnSubmit">
+            <a type="text" routerLink="/veiculos" class="btn btn-secondary mx-2">Voltar</a>
+            <button type="submit" class="btn btn-success ">Inserir veículo</button>
+        </div>
+
+    </form>
+</div>
