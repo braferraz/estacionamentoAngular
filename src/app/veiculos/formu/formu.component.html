@@ -1,8 +1,10 @@
 <div class="novoVeiculo">
-    <div class="title ">
+    <div *ngIf="!verifica()" class="title">
         <h3>Inserir novo veículo</h3>
     </div>
-        
+    <div *ngIf="verifica()" class="title">
+        <h3>Editar veículo</h3>
+    </div>
     <form class="form" [formGroup]="veiculoForm" (ngSubmit)="onSubmit()">
         <div class="mb-3" [ngClass]="verificaCampo('modelo') ? 'alert alert-danger': 'alert'">
             <label class="form-label">Modelo:</label>
@@ -23,7 +25,8 @@
         </div> 
         <div class="mb-3 btnSubmit">
             <a type="text" routerLink="/veiculos" class="btn btn-secondary mx-2">Voltar</a>
-            <button type="submit" class="btn btn-success ">Inserir veículo</button>
+            <button type="submit" class="btn btn-success" *ngIf="!verifica()">Inserir veículo</button>
+            <button type="submit" class="btn btn-success" *ngIf="verifica()">Atualizar veículo</button>
         </div>
 
     </form>

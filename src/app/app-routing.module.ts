@@ -10,7 +10,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'veiculos', component: VeiculosComponent, children: [
     {path:'retirados', component: RetiradosComponent},
-    {path: 'novo', component: FormuComponent}]}
+    {path: 'novo', component: FormuComponent},
+    {path: 'editar', component: FormuComponent}]}
 ];
 
 @NgModule({

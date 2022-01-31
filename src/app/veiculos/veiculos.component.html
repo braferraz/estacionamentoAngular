@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-12 veiculos">
-    <nav class="navbar navbar-expand-lg navbar-dark barraNav static-top" [ngClass]="verifica('/veiculos/novo') ? 'formu': ''" >
+    <nav class="navbar navbar-expand-lg navbar-dark barraNav static-top" [ngClass]="verifica('/veiculos/editar') || verifica('/veiculos/novo') ? 'formu': ''" >
       <div class="container">
         <div class="nav-item">
             <a class="nav-link" routerLink="/veiculos/novo">Inserir veículo</a>
@@ -36,7 +36,7 @@
           <th scope="row">1</th>
           <td>Ford Focus</td>
           <td>28/01/2022 10:55</td>
-          <td><a>Editar Veículo</a></td>
+          <td><a class="nav-link active" routerLink="/veiculos/editar" >Editar Veículo</a></td>
           <td><a>Registrar Saída</a></td>
         </tr>
       </tbody>

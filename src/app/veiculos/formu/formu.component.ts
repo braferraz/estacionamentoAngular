@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { concatMapTo } from 'rxjs';
 
 
@@ -14,7 +15,7 @@ export class FormuComponent implements OnInit {
   veiculoForm!: FormGroup;
   submitted = false;
   
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, public route: Router) { }
 
   
   ngOnInit(): void {
@@ -24,7 +25,9 @@ export class FormuComponent implements OnInit {
       dataEntrada:new FormControl(null)
     })
   }
-
+  verifica(){
+    return this.route.url === '/veiculos/editar';
+  }
   verificaCampo(campo:any){
     return this.submitted && this.veiculoForm.controls[campo].errors;
   }
