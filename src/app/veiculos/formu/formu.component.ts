@@ -1,9 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { concatMapTo } from 'rxjs';
-
-
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-formu',
   templateUrl: './formu.component.html',
@@ -14,19 +12,19 @@ export class FormuComponent implements OnInit {
   public data : Date = new Date();
   veiculoForm!: FormGroup;
   submitted = false;
-  
-  constructor(private formBuilder: FormBuilder, public route: Router) { }
+
+  constructor(private formBuilder: FormBuilder, public route: Router, private http: HttpClient) { }
 
   
   ngOnInit(): void {
     this.veiculoForm = new FormGroup({
-      modelo: new FormControl(null, [Validators.required, Validators.minLength(2)]),
-      placa: new FormControl(null, [Validators.required, Validators.maxLength(8), Validators.minLength(7)]),
-      dataEntrada:new FormControl(null)
+      model: new FormControl(null, [Validators.required, Validators.minLength(2)]),
+      numberPlate: new FormControl(null, [Validators.required, Validators.maxLength(8), Validators.minLength(7)]),
+      entryDate:new FormControl(null)
     })
   }
   verifica(){
-    return this.route.url === '/veiculos/editar';
+    return this.route.url === '/vehicles/edit';
   }
   verificaCampo(campo:any){
     return this.submitted && this.veiculoForm.controls[campo].errors;
@@ -36,15 +34,15 @@ export class FormuComponent implements OnInit {
     return this.submitted && this.veiculoForm.controls[campo].errors?.[erro];
   }
 
-  onSubmit(){
-    console.log(this.veiculoForm.controls['modelo'].errors?.['minlength']);
+  onSubmit(veiculoForm:any){
     this.submitted = true;
-    if(!this.veiculoForm.valid){
-      console.log("Erro!");
-      
-    }
-    else{
-      console.warn(this.veiculoForm.value);
-    }
+    
+      console.log(this.veiculoForm)
+      console.log("FF");
+      this.http.post('/api/vehicles/new', veiculoForm.value)
+      .subscribe((result)=>{
+        console.warn("result " + result)
+      });
+      this.route.navigate(['/vehicles'])
   }
 }

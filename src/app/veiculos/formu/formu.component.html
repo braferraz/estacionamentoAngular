@@ -5,26 +5,26 @@
     <div *ngIf="verifica()" class="title">
         <h3>Editar veículo</h3>
     </div>
-    <form class="form" [formGroup]="veiculoForm" (ngSubmit)="onSubmit()">
-        <div class="mb-3" [ngClass]="verificaCampo('modelo') ? 'alert alert-danger': 'alert'">
+    <form class="form" [formGroup]="veiculoForm" (ngSubmit)="onSubmit(veiculoForm)">
+        <div class="mb-3" [ngClass]="verificaCampo('model') ? 'alert alert-danger': 'alert'">
             <label class="form-label">Modelo:</label>
-            <input formControlName="modelo" type="email" class="form-control" placeholder="ex: Nissan Versa"/>
-            <span *ngIf="verificaErro('modelo', 'required')">Este campo é obrigatório.</span>
-            <span *ngIf="verificaErro('modelo', 'minlength')">Este campo deve possuir no minímo 2 caracteres.</span>
+            <input formControlName="model" class="form-control" placeholder="ex: Nissan Versa"/>
+            <span *ngIf="verificaErro('model', 'required')">Este campo é obrigatório.</span>
+            <span *ngIf="verificaErro('model', 'minlength')">Este campo deve possuir no minímo 2 caracteres.</span>
         </div>
-        <div class="mb-3" [ngClass]="verificaCampo('placa') ? 'alert alert-danger': 'alert'">
+        <div class="mb-3" [ngClass]="verificaCampo('numberPlate') ? 'alert alert-danger': 'alert'">
             <label class="form-label">Placa:</label>
-            <input formControlName="placa" class="form-control" placeholder="ex: ABC-0000">
-            <span *ngIf="verificaErro('placa', 'required')">Este campo é obrigatório.</span>
-            <span *ngIf="verificaErro('placa', 'maxlength')">Insira uma placa válida.</span>
-            <span *ngIf="verificaErro('placa', 'minlength')">Insira uma placa válida.</span>
+            <input formControlName="numberPlate" class="form-control" placeholder="ex: ABC-0000">
+            <span *ngIf="verificaErro('numberPlate', 'required')">Este campo é obrigatório.</span>
+            <span *ngIf="verificaErro('numberPlate', 'maxlength')">Insira uma placa válida.</span>
+            <span *ngIf="verificaErro('numberPlate', 'minlength')">Insira uma placa válida.</span>
         </div>
         <div class="mb-3 alert">
             <label class="form-label">Data de entrada:</label>
-            <input [ngModel]="data | date: 'dd/MM/yyyy hh:mm'" formControlName="dataEntrada" readonly class="form-control">
+            <input [ngModel]="data | date: 'dd/MM/yyyy hh:mm'" formControlName="entryDate" readonly class="form-control">
         </div> 
         <div class="mb-3 btnSubmit">
-            <a type="text" routerLink="/veiculos" class="btn btn-secondary mx-2">Voltar</a>
+            <a type="text" routerLink="/vehicles" class="btn btn-secondary mx-2">Voltar</a>
             <button type="submit" class="btn btn-success" *ngIf="!verifica()">Inserir veículo</button>
             <button type="submit" class="btn btn-success" *ngIf="verifica()">Atualizar veículo</button>
         </div>
