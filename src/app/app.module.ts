@@ -11,6 +11,7 @@ import { RetiradosComponent } from './veiculos/retirados/retirados.component';
 import { FormuComponent } from './veiculos/formu/formu.component';
 import { FormSaidaComponent } from './veiculos/form-saida/form-saida.component';
 import { CommonModule } from '@angular/common';
+import { Veiculo } from './veiculos/veiculo.model';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { CommonModule } from '@angular/common';
     FormsModule, 
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [Veiculo],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

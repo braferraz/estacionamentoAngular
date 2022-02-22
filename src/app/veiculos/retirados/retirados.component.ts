@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VeiculosService } from '../veiculos.service';
 
 @Component({
   selector: 'app-retirados',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RetiradosComponent implements OnInit {
 
-  constructor() { }
+  vehicles: Array<any> = new Array();
+  constructor(private vehicleService: VeiculosService) { }
 
   ngOnInit(): void {
+    this.vehicleService.getVehicleRemoved().subscribe(vehicles =>{
+      this.vehicles = vehicles
+    }, err => {
+      console.warn('Erro ao listar os veiculos retirados', err);
+    });
   }
 
 }

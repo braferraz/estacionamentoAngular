@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-12 veiculos">
-    <nav class="navbar navbar-expand-lg navbar-dark barraNav static-top" [ngClass]="verifica('/vehicles/edit') || verifica('/vehicles/new') ? 'formu': ''" >
+    <nav class="navbar navbar-expand-lg navbar-dark barraNav static-top" [ngClass]="!classRouteVerify('/vehicles','/vehicles/retirados') ? 'formu': ''" >
       <div class="container">
         <div class="nav-item">
             <a class="nav-link" routerLink="/vehicles/new">Inserir veículo</a>
@@ -11,10 +11,10 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" routerLink="/vehicles/retirados" *ngIf="verifica('/vehicles')">Veículos Retirados</a>
+              <a class="nav-link active" routerLink="/vehicles/retirados" *ngIf="routeVerify('/vehicles')">Veículos Retirados</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" routerLink="/vehicles" *ngIf="verifica('/vehicles/retirados')">Veículos Estacionados</a>
+              <a class="nav-link active" routerLink="/vehicles" *ngIf="routeVerify('/vehicles/retirados')">Veículos Estacionados</a>
             </li>
           </ul>
         </div>
@@ -23,7 +23,7 @@
     <router-outlet></router-outlet>
 
     
-      <table class="table" *ngIf="this.route.url ==='/vehicles'">   
+      <table class="table" *ngIf="routeVerify('/vehicles')">   
         <thead>
           <tr>
             <th scope="col">#</th>

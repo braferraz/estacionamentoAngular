@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -11,14 +11,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Ford Focus</td>
-      <td>FOR-1234</td>
-      <td>28/01/2022 10:55</td>
-      <td>28/01/2022 11:55</td>
-      <td>4 Horas</td>
-      <td>R$ 6,00</td>
+    <tr *ngFor="let vehicle of vehicles">
+      <th scope="row"></th>
+      <td>{{ vehicle.model }}</td>
+      <td>{{ vehicle.numberPlate }}</td>
+      <td>{{ vehicle.entryDate }}</td>
+      <td>{{ vehicle.departureDate }}</td>
+      <td>{{ vehicle.parkedTime }}h</td>
+      <td>{{ vehicle.amount | currency: 'BRL' }}</td>
     </tr>
   </tbody>
 </table>
