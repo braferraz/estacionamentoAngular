@@ -37,7 +37,7 @@
             <th scope="row"></th>
             <td>{{ vehicle.model }}</td>
             <td>{{ vehicle.entryDate }}</td>
-            <td><a class="nav-link active" routerLink="/vehicles/editar" >Editar Veículo</a></td>
+            <td><a class="nav-link active" routerLink="/vehicles/edit/{{ vehicle.id }}" >Editar Veículo</a></td>
             <td><a class="nav-link active" routerLink="/vehicles/exit/{{ vehicle.id }}" >Registrar Saída</a></td>
           </tr>
         </tbody>

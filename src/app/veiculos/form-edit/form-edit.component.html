@@ -1,8 +1,8 @@
 <div class="novoVeiculo">
     <div class="title">
-        <h3>Inserir novo veículo</h3>
+        <h3>Editar veículo</h3>
     </div>
-    <form class="form" [formGroup]="veiculoForm" (ngSubmit)="onSubmit(veiculoForm)">
+    <form class="form" *ngIf="vecForm" [formGroup]="vecForm" (ngSubmit)="onSubmit(vecForm)">
         <div class="mb-3" [ngClass]="verificaCampo('model') ? 'alert alert-danger': 'alert'">
             <label class="form-label">Modelo:</label>
             <input formControlName="model" class="form-control" placeholder="ex: Nissan Versa"/>
@@ -16,13 +16,9 @@
             <span *ngIf="verificaErro('numberPlate', 'maxlength')">Insira uma placa válida.</span>
             <span *ngIf="verificaErro('numberPlate', 'minlength')">Insira uma placa válida.</span>
         </div>
-        <div class="mb-3 alert">
-            <label class="form-label">Data de entrada:</label>
-            <input [ngModel]="data | date: 'dd/MM/yyyy hh:mm'" formControlName="entryDate" readonly class="form-control">
-        </div> 
         <div class="mb-3 btnSubmit">
             <a type="text" routerLink="/vehicles" class="btn btn-secondary mx-2">Voltar</a>
-            <button type="submit" class="btn btn-success">Inserir veículo</button>
+            <button type="submit" class="btn btn-success">Atualizar veículo</button>
         </div>
 
     </form>

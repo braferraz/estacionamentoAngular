@@ -22,7 +22,7 @@ export class FormSaidaComponent implements OnInit {
   trata(resposta:any){
     this.res = resposta;
     this.vecModel.model = this.res.model;
-    console.log(this.res.model.toString())
+    console.log(this.res.model.toString());
     this.createForm();
   }
   ngOnInit(): void {

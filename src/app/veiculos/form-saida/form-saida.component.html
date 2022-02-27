@@ -2,7 +2,7 @@
     <div class="title">
         <h3>Registrar saída</h3>
     </div>
-    <form class="form" [formGroup]="vehicleExitForm" (ngSubmit)="onSubmit(vehicleExitForm)">
+    <form class="form" *ngIf="vehicleExitForm" [formGroup]="vehicleExitForm" (ngSubmit)="onSubmit(vehicleExitForm)">
 
         <div class="mb-3">
             <label class="form-label">Modelo:</label>

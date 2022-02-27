@@ -16,6 +16,9 @@ export class VeiculosService {
   updateVehicle(id:number, vehicle:any ){
     return this.http.put('/api/vehicles/exit/'+ `${id}`, vehicle);
   }
+  editVehicle(id:number, vehicle:any ){
+    return this.http.put('/api/vehicles/edit/'+ `${id}`, vehicle);
+  }
   listVehicles(): Observable<any>{
     return this.http.get<any[]>('/api/vehicles')
   }
